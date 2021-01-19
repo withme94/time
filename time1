@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script
+    src="http://code.jquery.com/jquery-3.5.1.js"
+    integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
+    crossorigin="anonymous"></script>
+    <script>
+        $(document).ready(function start(){
+            var today = new Date();
+            var dd = ["Sun","Mon","Tues","Wednes","Thurs","Fri","Satur"];
+            var d = today.getDay();
+            var h = today.getHours();
+            var m = today.getMinutes();
+            var s = today.getSeconds();
+            
+            m = refresh(m);
+            s = refresh(s);
+
+            document.getElementById('watch').innerHTML = dd[d] + "day" + h + ":" + m + ":" + s;
+            var t = setTimeout(function(){
+                start()}, 1000
+            )
+        })
+        // function start(){
+        //     var today = new Date();
+        //     var dd = ["Sun","Mon","Tues","Wednes","Thurs","Fri","Satur"];
+        //     var d = today.getDay();
+        //     var h = today.getHours();
+        //     var m = today.getMinutes();
+        //     var s = today.getSeconds();
+            
+        //     m = refresh(m);
+        //     s = refresh(s);
+
+        //     document.getElementById('watch').innerHTML = dd[d] + "day" + h + ":" + m + ":" + s;
+        //     var t = setTimeout(function(){
+        //         start()}, 1000
+        //     )
+        // }
+
+        function refresh(i){
+            if(i<10){
+                i = "0" + i
+            }
+            return i;
+        }
+    </script>
+</head>
+<body>
+    <div id = "watch">
+
+    </div>
+</body>
+</html>
